@@ -1,4 +1,4 @@
-import { HttpClient  } from '@angular/common/http';
+import { HttpClient, JsonpInterceptor  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SearchGIFEngine,Gif } from '../interface/gif.interface';
 
@@ -18,6 +18,9 @@ export class GifsService {
   }
 
   constructor(private http:HttpClient){
+
+    this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
+    
 
 
   }
