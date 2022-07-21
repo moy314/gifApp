@@ -46,13 +46,10 @@ export class GifsService {
     .set('limit','10')
     .set('q',query);
 
-    console.log(params.toString());
-
-    console.log(this._historial);
+   
 
     this.http.get<SearchGIFEngine>(`${this.servicioUrl}/search`,{ params })
     .subscribe( resp =>{
-      console.log(resp.data );
       this.resultado = resp.data;
       localStorage.setItem('resultados',JSON.stringify(this.resultado));
 
